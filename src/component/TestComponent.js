@@ -32,7 +32,7 @@ class TestComponent extends Component {
     return (
       <div className="test">
         <input onChange={this.onChangeText} value={this.state.text}/>
-        <button onClick={this.onClickApiTest}>API</button>
+        <button onClick={this.onClickApiTest}>API Request</button>
       </div>
     );
   }
