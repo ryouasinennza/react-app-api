@@ -4,7 +4,7 @@ const expressApi = {
 
   test: {
     apiTest: () => {
-      return new ApiRequest(`/api/test/testApi`);
+      return new ApiRequest('post', `/api/test/testApi`);
     },
   },
 

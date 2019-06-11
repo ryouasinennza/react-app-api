@@ -1,8 +1,8 @@
 class ApiRequest {
 
-  constructor(path){
+  constructor(method, path){
     this.xhr = new XMLHttpRequest();
-    this.xhr.open('post', path);
+    this.xhr.open(method, path);
     this.xhr.setRequestHeader('Content-type', 'application/json');
     this.xhr.responseType = 'json';
     this.data = {};
