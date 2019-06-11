@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import expressApi from '../api/apiIndex';
-import styles from "../app.css";
+import expressApi from 'root/api';
+import styles from "root/app.css";
 
 class TestComponent extends Component {
 
