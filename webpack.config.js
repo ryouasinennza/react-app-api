@@ -2,8 +2,13 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 module.exports = {
+  context:  path.resolve(__dirname),
+  entry:'./src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, './dist'),
+  },
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
     port: 3000,
     proxy: {
       '/api': {
@@ -41,7 +46,10 @@ module.exports = {
           "style-loader",
           {
             loader: "css-loader",
-            options: {url: false},
+            options: {
+              url: false,
+              modules : true
+            },
           },
         ],
       },

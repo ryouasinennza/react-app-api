@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import expressApi from '../api/apiIndex';
+import styles from "../app.css";
 
 class TestComponent extends Component {
 
   state = {
-    text: "",
+    text: '',
+    response: '',
   };
 
   onChangeText = event => this.setState({text: event.target.value});
@@ -20,20 +22,33 @@ class TestComponent extends Component {
   };
 
   success = (res) => {
-    console.log('res', res);
+    this.setState({
+      response: res.message,
+    });
   };
 
   error = (res) => {
-    console.log('res', res);
+    this.setState({
+      response: res.message,
+    });
   };
 
   render(){
     console.log('state', this.state.text);
     return (
-      <div className="test">
-        <input onChange={this.onChangeText} value={this.state.text}/>
-        <button onClick={this.onClickApiTest}>API Request</button>
-      </div>
+      <>
+        <div className={styles.test}>
+          <input
+            className={styles.input}
+            onChange={this.onChangeText}
+            value={this.state.text}
+          />
+          <button className={styles.button} onClick={this.onClickApiTest}>API
+            Request!
+          </button>
+        </div>
+        <div className={styles.response}>{this.state.response}</div>
+      </>
     );
   }
 }
