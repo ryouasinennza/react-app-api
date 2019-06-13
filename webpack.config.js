@@ -2,8 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  context:  path.resolve(__dirname),
-  entry:'./src/index.js',
+  context: path.resolve(__dirname),
+  entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './dist'),
@@ -19,7 +19,7 @@ module.exports = {
   resolve: {
     alias: {
       root: path.resolve(__dirname, 'src/'),
-    }
+    },
   },
   module: {
     rules: [
@@ -53,7 +53,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               url: false,
-              modules : true
+              modules: true,
             },
           },
         ],

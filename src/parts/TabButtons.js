@@ -9,7 +9,7 @@ const TabButtons = (props) => {
   } = props;
 
   return (
-    <div className={styles.tabButtonBox}>
+    <nav className={styles.tabButtonBox}>
       <button
         onClick={() => clickTabAction(0)}
         disabled={tab === 0}
@@ -22,7 +22,13 @@ const TabButtons = (props) => {
         className={styles.tabButton}
       >POST
       </button>
-    </div>
+      <button
+        onClick={() => clickTabAction(2)}
+        disabled={tab === 3}
+        className={styles.tabButton}
+      >DELETE
+      </button>
+    </nav>
   );
 };
 

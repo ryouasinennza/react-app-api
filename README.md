@@ -8,7 +8,7 @@ npm i
 npm start
 
 ## Description
-webpack-dev-serve を使った API 送信
+学習用 webpack-dev-serve を使った API 送信
 
 ## LINK
 https://github.com/ikedahideharu/express-server-api.git

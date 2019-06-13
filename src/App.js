@@ -1,14 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
+import TabButtons from 'root/parts/TabButtons';
 import GetRequest from 'root/parts/GetRequest';
 import PostRequest from 'root/parts/PostRequest';
-import TabButtons from 'root/parts/TabButtons';
+import DeleteRequest from 'root/parts/DeleteRequest';
 import styles from './app.css';
 
-class App extends Component {
-
-  constructor(props){
-    super(props)
-  }
+class App extends React.Component {
 
   state = {
     tab: 0,
@@ -22,14 +19,15 @@ class App extends Component {
 
   render(){
     return (
-      <div className={styles.app}>
+      <main className={styles.app}>
         <TabButtons
           tab={this.state.tab}
           clickTabAction={this.clickTabAction}
         />
         {this.state.tab === 0 && <GetRequest/>}
         {this.state.tab === 1 && <PostRequest/>}
-      </div>
+        {this.state.tab === 2 && <DeleteRequest/>}
+      </main>
     );
   }
 }

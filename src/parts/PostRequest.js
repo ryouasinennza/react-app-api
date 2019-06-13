@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
-import expressApi from 'root/api';
+import api from 'root/api';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {withStyles, createStyles} from '@material-ui/core/styles';
 
 const styles = createStyles({
-  root: {
+  form: {
+    width: '360px',
+    textAlign: 'center',
+  },
+  h1: {
+    color: 'red',
+    textAlign: 'center',
+  },
+  buttonRoot: {
     margin: '40px',
     width: '100px',
     color: 'rgba(255, 255, 255, 0.88)',
-    background: 'linear-gradient(#F89174, #FFC778)!important',
+    background: 'linear-gradient(#F89174, #FFC778)',
   },
 });
 
@@ -17,13 +25,18 @@ class PostRequest extends Component {
 
   state = {
     value: '',
-    request: false,
+    error: '',
   };
 
-  onChangeText = event => this.setState({value: event.target.value});
+  onChangeText = event => {
+    this.setState({
+      value: event.target.value,
+      error: '',
+    });
+  };
 
   onClickApiTest = () => {
-    const postRequest = expressApi.test.postTest();
+    const postRequest = api.test.postTest();
     postRequest.data = {
       value: this.state.value,
     };
@@ -35,39 +48,44 @@ class PostRequest extends Component {
   postRequestSuccess = (res) => {
     this.setState({
       value: '',
-      request: true,
+      error: '',
     });
   };
 
   postRequestError = (res) => {
     this.setState({
-      request: false,
+      value: '',
+      error: res.message,
     });
   };
 
   render(){
 
-    console.log('state', this.state.value);
     const {classes} = this.props;
+    const {value, error} = this.state;
+
     return (
-      <>
+      <form className={classes.form}>
+        <h1 className={classes.h1}>material-ui</h1>
         <TextField
           id="outlined-name"
           label="value"
-          value={this.state.value}
+          value={value}
           onChange={this.onChangeText}
           margin="normal"
           variant="outlined"
+          error={!!error}
+          helperText={error && error}
         />
         <Button
           variant="contained"
           color="primary"
-          classes={{root: classes.root}}
+          classes={{root: classes.buttonRoot}}
           onClick={this.onClickApiTest}
         >
           POST
         </Button>
-      </>
+      </form>
     );
   }
 }
