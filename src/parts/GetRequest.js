@@ -46,7 +46,7 @@ class GetRequest extends React.Component {
         <ul className={styles.ul}>
           {docs.length === 0 &&
           <p className={styles.noData}>contents empty</p>}
-          {docs.map((value, index, array) => {
+          {docs.map((value, index) => {
             return (
               <li key={index} className={styles.li}>
                 <p className={styles.p}>ID: {value.testId}</p>
