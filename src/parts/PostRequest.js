@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import api from 'root/api';
+import api from 'expressApi';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {withStyles, createStyles} from '@material-ui/core/styles';
@@ -21,6 +21,7 @@ const styles = createStyles({
   },
 });
 
+// style部分はmaterial-uiを使用 https://material-ui.com
 class PostRequest extends Component {
 
   state = {
@@ -28,6 +29,8 @@ class PostRequest extends Component {
     error: '',
   };
 
+  // TextFieldでチェンジイベントが発生したときに動かす関数
+  // onChangeに関数を入れると 引数にeventもしくはelementがもらえます
   onChangeText = event => {
     this.setState({
       value: event.target.value,
@@ -37,6 +40,7 @@ class PostRequest extends Component {
 
   onClickApiTest = () => {
     const postRequest = api.test.postTest();
+    // 送信する値を セットします
     postRequest.data = {
       value: this.state.value,
     };
@@ -61,12 +65,17 @@ class PostRequest extends Component {
 
   render(){
 
+    // classesはmaterial-uiのスタイルをオーバーライドさせるときに使います
+    // classesは普通にスタイルを付けるときにも使えます
     const {classes} = this.props;
     const {value, error} = this.state;
 
     return (
       <form className={classes.form}>
         <h1 className={classes.h1}>material-ui</h1>
+        {/* material-uiのコンポーネントです これ一つで色々なことができます */}
+        {/* demo https://material-ui.com/components/text-fields/ */}
+        {/* API https://material-ui.com/api/text-field/ */}
         <TextField
           id="outlined-name"
           label="value"
@@ -77,10 +86,16 @@ class PostRequest extends Component {
           error={!!error}
           helperText={error && error}
         />
+        {/* material-uiのコンポーネントです これ一つで色々なことができます */}
+        {/* demo https://material-ui.com/components/buttons/ */}
+        {/* API https://material-ui.com/api/button/ */}
+        {/* Button style変更 root要素をオーバーライドしています */}
         <Button
           variant="contained"
           color="primary"
-          classes={{root: classes.buttonRoot}}
+          classes={
+            {root: classes.buttonRoot}
+          }
           onClick={this.onClickApiTest}
         >
           POST

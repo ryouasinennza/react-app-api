@@ -1,7 +1,8 @@
 import React from 'react';
-import api from 'root/api';
+import api from 'expressApi';
 import styles from "root/app.css";
 
+// style部分はcss modulesを使用
 class GetRequest extends React.Component {
 
   state = {
@@ -9,10 +10,13 @@ class GetRequest extends React.Component {
     message: '',
   };
 
+  // reactのライフサイクルの関数 react ライフサイクルで検索！
   componentDidMount(){
+    // GET リクエスト
     this.onGetTest();
   }
 
+  // GET APIのリクエストするときの関数
   onGetTest = () => {
     const getRequest = api.test.getTest();
     getRequest.data = {};
@@ -21,6 +25,7 @@ class GetRequest extends React.Component {
     getRequest.send();
   };
 
+  // http 200 で成功したとき
   getRequestSuccess = (res) => {
     this.setState({
       docs: res.docs,
@@ -28,6 +33,7 @@ class GetRequest extends React.Component {
     });
   };
 
+  // http 200以外
   getRequestError = (res) => {
     this.setState({
       docs: [],
@@ -41,12 +47,14 @@ class GetRequest extends React.Component {
 
     return (
       <section className={styles.getBox}>
-        <h1 className={styles.h1}>css-modules</h1>
+        <h1 className={styles.h1}>css modules</h1>
         <p className={styles.getError}>{message}</p>
         <ul className={styles.ul}>
           {docs.length === 0 &&
           <p className={styles.noData}>contents empty</p>}
+          {/* mapで新しい配列を作って表示させます */}
           {docs.map((value, index) => {
+            {/* 配列を渡す時は keyにユニークな値をいれます */}
             return (
               <li key={index} className={styles.li}>
                 <p className={styles.p}>ID: {value.testId}</p>

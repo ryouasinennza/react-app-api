@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import api from 'root/api';
+import api from 'expressApi';
 import {
   Form,
   FormControl,
@@ -15,6 +15,7 @@ const styles = {
   },
 };
 
+// style部分はbootstrapを使用  https://react-bootstrap.github.io/
 class DeleteRequest extends Component {
 
   state = {
@@ -60,6 +61,7 @@ class DeleteRequest extends Component {
   deleteRequestError = (res) => {
     this.setState({
       testId: 0,
+      // 204の場合nullが返ってくるので 三項演算で切り替えています
       error: res ? res.message : 'IDが見つかりません',
       success: '',
     });
@@ -75,6 +77,7 @@ class DeleteRequest extends Component {
 
     return (
       <Form>
+        {/*ブートストラップのスタイルをオーバーライドするとき*/}
         <style type="text/css">
           {`
            .input-group {

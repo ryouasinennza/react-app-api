@@ -1,5 +1,6 @@
 class ApiRequest {
 
+  // 非同期通信する class
   constructor(method, path){
     this.xhr = new XMLHttpRequest();
     this.xhr.open(method, path);
