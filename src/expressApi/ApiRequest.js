@@ -7,6 +7,8 @@ class ApiRequest {
     this.xhr.setRequestHeader('Content-type', 'application/json');
     this.xhr.responseType = 'json';
     this.data = {};
+    this.onSuccess = (res) => console.log('onSuccess', res);
+    this.onError = (res) => console.log('onError', res);
   };
 
   send = () => {
@@ -19,13 +21,6 @@ class ApiRequest {
     });
     this.xhr.send(JSON.stringify(this.data));
   };
-
-  onSuccess = function(response){
-  };
-
-  onError = function(response){
-  };
-
 }
 
 export default ApiRequest;

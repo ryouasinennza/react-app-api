@@ -13,9 +13,9 @@ const TabButtons = (props) => {
 
   return (
     <nav className={styles.tabButtonBox}>
-      {/* onClick これはjavascriptの .onclick です */}
+      {/* onClick={} これはjavascriptの .onclick() です */}
       {/* disabled HTMLの属性 disabled を付与するかしないか */}
-      {/* className そのまんまです クラス名を付けます */}
+      {/* className クラス名を付けます */}
       {/* styles.tabButton は css modulesを使うときの指定方法 */}
       <button
         onClick={() => clickTabAction(0)}

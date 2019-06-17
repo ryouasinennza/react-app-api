@@ -27,7 +27,7 @@ class App extends React.Component {
       // HTMLに見えるが実体はjavascript
       // 実際のHTMLと同じ名前のものは javascriptでcreateElement('tagName'); をしていると考えてください
       <main className={styles.app}>
-        {/* HTMLぽく見えますが これはTabButtonsという関数です tab clickTabAction は引数  TabButtons.jsにジャンプ */}
+        {/* HTMLぽく見えますが これはTabButtonsという関数です tab clickTabAction は引数  TabButtons.jsを見に行きましょう */}
         <TabButtons
           tab={this.state.tab}
           clickTabAction={this.clickTabAction}

@@ -10,7 +10,7 @@ class GetRequest extends React.Component {
     message: '',
   };
 
-  // reactのライフサイクルの関数 react ライフサイクルで検索！
+  // reactのライフサイクルの関数 ComponentがDOMツリーに追加された状態で呼ばれる 詳しくは 'react ライフサイクル' で検索！
   componentDidMount(){
     // GET リクエスト
     this.onGetTest();
@@ -19,7 +19,7 @@ class GetRequest extends React.Component {
   // GET APIのリクエストするときの関数
   onGetTest = () => {
     const getRequest = api.test.getTest();
-    getRequest.data = {};
+    // getRequest.data = {};
     getRequest.onSuccess = this.getRequestSuccess;
     getRequest.onError = this.getRequestError;
     getRequest.send();
