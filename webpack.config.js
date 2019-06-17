@@ -1,11 +1,11 @@
-let configObj = {};
+const prodConfig = require('./webpack.prod.config');
+const devConfig = require('./webpack.dev.config');
 
-if (process.env.NODE_ENV === 'production') {
-  console.log('prod');
-  configObj = require('./webpack.prod.config');
-} else {
-  console.log('dev');
-  configObj = require('./webpack.dev.config');
-}
-
-module.exports = configObj;
+module.exports = (env, options) => {
+  console.log('options.mode ',options.mode );
+  if (options.mode === 'production') {
+    return prodConfig;
+  } else {
+    return devConfig;
+  }
+};
