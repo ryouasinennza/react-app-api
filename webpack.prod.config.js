@@ -18,8 +18,8 @@ module.exports = {
   resolve: {
     // エイリアスの設定
     alias: {
-      // ルートディレクトリのエイリアス
-      root: path.resolve(__dirname, 'src/'),
+      // partsのエイリアス
+      parts: path.resolve(__dirname, 'src/parts/'),
       // apiのエイリアス
       expressApi: path.resolve(__dirname, 'src/expressApi/'),
     },

@@ -1,6 +1,6 @@
 import React from 'react';
 import api from 'expressApi';
-import styles from "root/app.css";
+import styles from "../app.css";
 
 // style部分はcss modulesを使用
 class GetRequest extends React.Component {

@@ -1,8 +1,9 @@
 import React from 'react';
-import TabButtons from 'root/parts/TabButtons';
-import GetRequest from 'root/parts/GetRequest';
-import PostRequest from 'root/parts/PostRequest';
-import DeleteRequest from 'root/parts/DeleteRequest';
+// webpackでpartsのエイリアスを設定したので 相対パスにしなくていい
+import TabButtons from 'parts/TabButtons';
+import GetRequest from 'parts/GetRequest';
+import PostRequest from 'parts/PostRequest';
+import DeleteRequest from 'parts/DeleteRequest';
 import styles from './app.css';
 
 // メインとなるclassです style部分はcss modulesを使用 https://github.com/webpack-contrib/css-loader
@@ -18,6 +19,8 @@ class App extends React.Component {
     // stateを変更するときは setState()を使います これにより 再レンダリングされます
     this.setState({
       tab: tabNumber,
+    }, () => {
+      console.log('コールバックを渡すこともできる');
     });
   };
 

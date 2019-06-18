@@ -2,6 +2,7 @@
   "name": "webpack-react",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "webpack-dev-server --open --mode development --inline --hot",
     "start:vagrant": "webpack-dev-server --open --mode development --host 0.0.0.0 --public 192.168.33.10 --watch-poll  --inline --hot",
@@ -25,7 +26,7 @@
   "dependencies": {
     "@material-ui/core": "^4.1.0",
     "bootstrap": "^4.3.1",
-    "dotenv": "^8.0.0",
+    "jquery": "^3.4.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6"
